@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_AZURE_ENDPOINT;
 const API_KEY = import.meta.env.VITE_AZURE_API_KEY;
 const DEPLOYMENT_NAME = import.meta.env.VITE_AZURE_DEPLOYMENT_NAME;
 
-export const analyzeImage = async (imageUrl: string): Promise<ChatResponse> => {
+export const analyzeImage = async (imageUrl: string, prompt: string): Promise<ChatResponse> => {
   try {
     const payload = {
       messages: [
@@ -14,7 +14,7 @@ export const analyzeImage = async (imageUrl: string): Promise<ChatResponse> => {
           content: [
             { 
               type: "text", 
-              text: "Analyze this image in detail. Describe what you see, including objects, colors, composition, and any notable details. Also, try to determine what type of image this is (e.g., photograph, illustration, diagram, etc.)." 
+              text: prompt
             },
             {
               type: "image_url",
@@ -26,7 +26,7 @@ export const analyzeImage = async (imageUrl: string): Promise<ChatResponse> => {
         }
       ],
       max_tokens: 800,
-      temperature: 0.7,
+      temperature: 0.3, // Lower temperature for more focused extraction
       frequency_penalty: 0,
       presence_penalty: 0,
       top_p: 0.95

@@ -35,7 +35,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ onImageSelect, disable
         <button
           onClick={() => inputRef.current?.click()}
           disabled={disabled}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           <ImagePlus className="w-5 h-5" />
           Upload Image for Analysis
